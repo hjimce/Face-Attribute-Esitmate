@@ -50,7 +50,7 @@ def GetFileList(FindPath,FlagStr=[]):
 
     return FileList
 
-filesplit=readdata('photo.txt')
+'''filesplit=readdata('photo.txt')
 for s in filesplit:
     if len(s)!=5:
         continue
@@ -71,9 +71,18 @@ for s in filesplit:
     maxlenght=max(rectshape[0],rectshape[1])
     img0=np.zeros((maxlenght,maxlenght,3))
     img0[(maxlenght*.5-rectshape[0]*.5):(maxlenght*.5+rectshape[0]*.5),(maxlenght*.5-rectshape[1]*.5):(maxlenght*.5+rectshape[1]*.5)]=roi
-    cv2.imwrite('crop'+s[0],img0)
+    cv2.imwrite('crop'+s[0],img0)'''
+#拷贝文件到另外一个文件
+import  shutil
+dirimg=['black','brown','white','yellow']
+for s in dirimg:
+    path='pickcut\\'+s
+    dl=os.listdir(path)
 
-
+    for img in dl:
+        newpath='photoclassify\\'+s+'\\'+img
+        oldpath='photo\\'+img
+        shutil.copy(oldpath,newpath)
 
 
 #生成目录
