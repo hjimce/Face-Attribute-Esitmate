@@ -1,8 +1,8 @@
 #coding=utf-8
 #生成目录
 from Base import  GetFileList
-fr=open('imagelist.txt','w')
-FileList=GetFileList('photo_02')
+fr=open('down.txt','w')
+FileList=GetFileList('new')
 fr.writelines(str(len(FileList))+'\n')
 for i,oldname in enumerate(FileList):
     newname=oldname+'\n'

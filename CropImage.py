@@ -5,8 +5,10 @@ import numpy as np
 #根据人脸框bbox，从一张完整图片裁剪出人脸
 filesplit=readdata('bbox.txt')
 for s in filesplit:
-    if len(s)!=5:
+    print s
+    if len(s)!=5 and len(s)!=9:
         continue
+    s=s[:5]
     img = cv2.imread(s[0])
     height, weight =np.shape(img)[:2]
     x1, x2, y1, y2 =[int(x) for x in s[1:]]
